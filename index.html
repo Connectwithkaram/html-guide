@@ -1,165 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Guide: Roads Service Audit Register</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Cool Gray & Vibrant Teal -->
-    <!-- Application Structure Plan: A vertical, interactive timeline. Left-side stepper navigation controls the content displayed in the right-side panel. This version is self-contained to ensure compatibility with SharePoint's security policies by inlining all CSS and removing external API calls. -->
-    <!-- Visualization & Content Choices: The primary visualization is the HTML/CSS process timeline. Each step, when clicked, updates the main content area with instructional text and the relevant screenshot, providing clear, visual context for each part of the process. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-        /* Embedded Tailwind CSS */
-        /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */*,::after,::before{box-sizing:border-box}:root{-moz-tab-size:4;tab-size:4}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji'}hr{height:0;color:inherit}abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}legend{padding:0}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button,input,select,textarea{background-color:transparent;border:0}button:focus{outline:1px dotted;outline:5px auto -webkit-focus-ring-color}*,::before,::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }
-        .container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}
-        .prose{color:#374151;max-width:65ch}.prose [class~=lead]{color:#4b5563;font-size:1.25em;line-height:1.6;margin-top:1.2em;margin-bottom:1.2em}.prose a{color:#5850ec;text-decoration:underline;font-weight:500}.prose strong{color:#111827;font-weight:600}.prose ol[type=A]{--list-counter-style:upper-alpha}.prose ol[type=a]{--list-counter-style:lower-alpha}.prose ol[type=I]{--list-counter-style:upper-roman}.prose ol[type=i]{--list-counter-style:lower-roman}.prose ol[type=1]{--list-counter-style:decimal}.prose ol>li{position:relative;padding-left:1.75em}.prose ol>li::before{content:counter(list-item,var(--list-counter-style)) ".";position:absolute;font-weight:400;color:#6b7280;left:0}.prose ul>li{position:relative;padding-left:1.75em}.prose ul>li::before{content:"";position:absolute;background-color:#d1d5db;border-radius:50%;width:.375em;height:.375em;top:.6875em;left:.25em}.prose hr{border-color:#e5e7eb;border-top-width:1px;margin-top:3em;margin-bottom:3em}.prose blockquote{font-weight:500;font-style:italic;color:#111827;border-left-width:4px;border-left-color:#e5e7eb;padding-left:1em}.prose h1{color:#111827;font-weight:800;font-size:2.25em;margin-top:0;margin-bottom:.8888889em;line-height:1.1111111}.prose h2{color:#111827;font-weight:700;font-size:1.5em;margin-top:2em;margin-bottom:1em;line-height:1.3333333}.prose h3{color:#111827;font-weight:600;font-size:1.25em;margin-top:1.6em;margin-bottom:.6em;line-height:1.6}.prose h4{color:#111827;font-weight:600;margin-top:1.5em;margin-bottom:.5em;line-height:1.5}.prose figure figcaption{color:#6b7280;font-size:.875em;line-height:1.4285714;margin-top:.8571429em}.prose code{color:#111827;font-weight:600;font-size:.875em}.prose code::after,.prose code::before{content:"`"}.prose a code{color:#5850ec}.prose pre{color:#e5e7eb;background-color:#1f2937;overflow-x:auto;font-size:.875em;line-height:1.7142857;margin-top:1.7142857em;margin-bottom:1.7142857em;border-radius:6px;padding:1.1428571em}.prose pre code{background-color:transparent;border-width:0;border-radius:0;padding:0;font-weight:400;color:inherit;font-size:inherit;font-family:inherit;line-height:inherit}.prose pre code::after,.prose pre code::before{content:""}.prose table{width:100%;table-layout:auto;text-align:left;margin-top:2em;margin-bottom:2em;font-size:.875em;line-height:1.7142857}.prose thead{border-bottom-width:1px;border-bottom-color:#d1d5db;font-weight:600;color:#111827}.prose thead th{vertical-align:bottom;padding-right:1.1428571em;padding-bottom:.5714286em;padding-left:1.1428571em}.prose tbody tr{border-bottom-width:1px;border-bottom-color:#e5e7eb}.prose tbody tr:last-child{border-bottom-width:0}.prose tbody td{vertical-align:top;padding:1.1428571em}.prose p{margin-top:1.25em;margin-bottom:1.25em}.prose img{margin-top:2em;margin-bottom:2em}.prose video{margin-top:2em;margin-bottom:2em}.prose figure{margin-top:2em;margin-bottom:2em}.prose figure>*{margin-top:0;margin-bottom:0}.prose h2 code{font-size:1.1666667em}.prose h3 code{font-size:1.2em}.prose ol,.prose ul{margin-top:1.25em;margin-bottom:1.25em}.prose li{margin-top:.5em;margin-bottom:.5em}.prose>ul>li p{margin-top:.75em;margin-bottom:.75em}.prose>ul>li>*:first-child{margin-top:1.25em}.prose>ul>li>*:last-child{margin-bottom:1.25em}.prose>ol>li>*:first-child{margin-top:1.25em}.prose>ol>li>*:last-child{margin-bottom:1.25em}.prose ol ol,.prose ol ul,.prose ul ol,.prose ul ul{margin-top:.75em;margin-bottom:.75em}.prose hr+*{margin-top:0}.prose h2+*{margin-top:0}.prose h3+*{margin-top:0}.prose h4+*{margin-top:0}.prose thead th:first-child{padding-left:0}.prose thead th:last-child{padding-right:0}.prose tbody td:first-child{padding-left:0}.prose tbody td:last-child{padding-right:0}.prose>:first-child{margin-top:0}.prose>:last-child{margin-bottom:0}
-        .mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-2{margin-top:.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.flex{display:flex}.h-8{height:2rem}.h-96{height:24rem}.h-auto{height:auto}.w-1\/3{width:33.333333%}.w-1\/4{width:25%}.w-2\/3{width:66.666667%}.w-3\/4{width:75%}.w-8{width:2rem}.w-full{width:100%}.max-w-none{max-width:none}.flex-shrink-0{flex-shrink:0}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.gap-8{gap:2rem}.space-x-4>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * (1 - var(--tw-space-x-reverse)))}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem * (1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-lg{border-radius:.5rem}.rounded-full{border-radius:9999px}.border-l-4{border-left-width:4px}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity))}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity))}.text-teal-600{--tw-text-opacity:1;color:rgb(13 148 136 / var(--tw-text-opacity))}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.object-contain{object-fit:contain}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.focus\:border-teal-400:focus{--tw-border-opacity:1;border-color:rgb(45 212 191 / var(--tw-border-opacity))}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-teal-400:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(45 212 191 / var(--tw-ring-opacity))}@media (min-width:768px){.md\:w-1\/3{width:33.333333%}.md\:w-2\/3{width:66.666667%}.md\:flex-row{flex-direction:row}}@media (min-width:1024px){.lg\:w-1\/4{width:25%}.lg\:w-3\/4{width:75%}.lg\:p-8{padding:2rem}}
-        /* Custom Styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f1f5f9;
-        }
-        .step {
-            cursor: pointer;
-            transition: background-color 0.2s, border-color 0.2s;
-        }
-        .step.active {
-            border-left-color: #14b8a6;
-            background-color: #ffffff;
-        }
-        .step.active .step-circle {
-            background-color: #14b8a6;
-            color: white;
-        }
-        .step.active .step-title {
-            color: #0d9488;
-        }
-        .content-image {
-            border: 1px solid #e2e8f0;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roads Service Audit Register – Visual Guide (Enhanced)</title>
+  <!-- Note: Keeping system fonts for SharePoint compatibility (no external font calls) -->
+  <style>
+    /* -----------------------
+       Base & Reset-lite
+    ----------------------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a; /* slate-900 */
+      background: linear-gradient(135deg, #e2f3f1 0%, #f1f5f9 45%, #e2e8f0 100%);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    :root {
+      --c-bg: #ffffff;
+      --c-card: #ffffffee;
+      --c-muted: #64748b; /* slate-500 */
+      --c-muted-2: #475569; /* slate-600 */
+      --c-border: #e2e8f0; /* slate-200 */
+      --c-teal: #14b8a6; /* teal-500/600 */
+      --c-teal-2: #0d9488; /* teal-600 */
+      --radius: 14px;
+      --shadow-1: 0 10px 30px rgba(2, 8, 23, 0.06);
+      --shadow-2: 0 6px 20px rgba(2, 8, 23, 0.08);
+      --step-w: 320px;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+    header {
+      position: relative;
+      background: var(--c-card);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius);
+      padding: 24px 24px 14px;
+      box-shadow: var(--shadow-1);
+      backdrop-filter: saturate(130%) blur(6px);
+    }
+    .title { font-weight: 800; letter-spacing: -0.02em; margin: 0; font-size: 30px; }
+    .subtitle { margin: 6px 0 0; color: var(--c-muted); font-weight: 500; }
+
+    /* Progress Bar */
+    .progress-wrap { position: relative; height: 8px; background:#e2e8f0; border-radius: 999px; margin-top: 18px; overflow: hidden; }
+    .progress { height: 100%; width: 0%; background: linear-gradient(90deg, #5eead4, var(--c-teal), #2dd4bf); box-shadow: inset 0 0 8px rgba(0,0,0,0.06); transition: width 300ms ease; }
+
+    /* Layout */
+    .layout { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
+    @media (min-width: 960px) {
+      .layout { grid-template-columns: var(--step-w) 1fr; }
+    }
+
+    /* Stepper */
+    aside {
+      position: sticky; top: 16px; align-self: start;
+      border-radius: var(--radius);
+      border: 1px solid var(--c-border);
+      background: var(--c-card);
+      box-shadow: var(--shadow-1);
+      overflow: hidden;
+    }
+    .steps-header { padding: 16px 16px 8px; border-bottom: 1px dashed var(--c-border); }
+    .steps-header h3 { margin: 0; font-size: 15px; color: var(--c-muted-2); font-weight: 600; letter-spacing: .02em; text-transform: uppercase; }
+
+    .stepper { display: flex; flex-direction: column; }
+    .step { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 14px 16px; cursor: pointer; align-items: center; border-left: 4px solid transparent; position: relative; }
+    .step + .step { border-top: 1px solid #f1f5f9; }
+
+    .step:hover { background: #f8fafc; }
+    .step:focus { outline: none; }
+    .step:focus-visible { box-shadow: 0 0 0 3px rgba(20,184,166,.35) inset; }
+
+    .step-circle {
+      display: grid; place-items: center; width: 32px; height: 32px; border-radius: 999px;
+      background: #e2e8f0; color: #0f172a; font-weight: 800; font-size: 14px;
+      transition: transform .18s ease;
+    }
+    .step:hover .step-circle { transform: translateY(-1px) scale(1.02); }
+
+    .step-title { font-weight: 700; letter-spacing: -.01em; }
+    .step-sub { font-size: 12px; color: var(--c-muted); margin-top: 2px; }
+
+    .step.active {
+      background: linear-gradient(180deg, #ffffff, #f8fffd);
+      border-left-color: var(--c-teal);
+      box-shadow: inset 0 0 0 1px #ecfeff, 0 1px 0 #e2e8f0;
+    }
+    .step.active .step-circle { background: var(--c-teal); color: white; box-shadow: 0 6px 14px rgba(20,184,166, .35); }
+    .step.active .step-title { color: var(--c-teal-2); }
+
+    /* Content Panel */
+    main {
+      background: var(--c-card);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-2);
+      padding: 24px;
+      min-height: 420px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* content transitions */
+    .fade-enter { opacity: 0; transform: translateY(6px) scale(.995); }
+    .fade-enter-active { opacity: 1; transform: translateY(0) scale(1); transition: opacity 250ms ease, transform 250ms ease; }
+
+    .content-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .content-title { margin: 0; font-size: 24px; letter-spacing: -0.02em; }
+
+    .content-body { margin-top: 12px; color: #1f2937; }
+    .content-body h4 { margin: 18px 0 8px; font-size: 18px; color: #0f172a; }
+    .content-body p { margin: 8px 0 16px; color: var(--c-muted-2); }
+
+    .content-image { width: 100%; height: auto; max-height: 420px; object-fit: contain; border-radius: 12px; border: 1px solid var(--c-border); box-shadow: var(--shadow-1); background: #fff; }
+
+    /* Controls */
+    .controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
+    .btn {
+      display:inline-flex; align-items:center; gap:10px; cursor:pointer; user-select:none;
+      background: #0f172a; color:#ffffff; border:1px solid #0f172a; border-radius: 12px; padding: 10px 14px; font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn.secondary { background: #ffffff; color:#0f172a; border-color: var(--c-border); }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 16px rgba(2,8,23, .08); }
+    .btn:active { transform: translateY(0); box-shadow: none; }
+    .btn[disabled] { opacity: .45; cursor: not-allowed; box-shadow: none; transform: none; }
+
+    /* Tiny badges / chips */
+    .chip { display:inline-block; padding: 2px 10px; font-size: 11px; border-radius: 999px; background:#e6fffb; color:#0d9488; border:1px solid #99f6e4; font-weight:700; letter-spacing:.02em; }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-enter-active { transition: none; }
+      .step-circle, .btn { transition: none; }
+      .progress { transition: none; }
+    }
+  </style>
 </head>
-<body class="text-slate-700">
+<body>
+  <div class="container">
+    <header aria-label="Guide header">
+      <h1 class="title">Roads Service Audit Register</h1>
+      <p class="subtitle">A visual, step‑by‑step guide to creating audits, managing findings & actions, and completing verification.</p>
+      <div class="progress-wrap" aria-hidden="true"><div id="progress" class="progress"></div></div>
+    </header>
 
-    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
-        <header class="text-center mb-10">
-            <h1 class="text-3xl font-bold text-slate-900">Roads Service Audit Register</h1>
-            <p class="text-lg text-slate-600 mt-2">A Visual, Step-by-Step Guide</p>
-        </header>
+    <section class="layout" aria-label="Main layout">
+      <!-- Stepper / Sidebar -->
+      <aside>
+        <div class="steps-header"><h3>Process Timeline</h3></div>
+        <nav id="stepper" class="stepper" aria-label="Steps" role="tablist">
+          <div id="step-1" class="step" role="tab" tabindex="0" aria-controls="panel-1" aria-selected="true" data-step="1">
+            <div class="step-circle">1</div>
+            <div>
+              <div class="step-title">Create Audit & Finding</div>
+              <div class="step-sub">Start the process</div>
+            </div>
+          </div>
+          <div id="step-2" class="step" role="tab" tabindex="0" aria-controls="panel-2" aria-selected="false" data-step="2">
+            <div class="step-circle">2</div>
+            <div>
+              <div class="step-title">Create Action</div>
+              <div class="step-sub">Address a finding</div>
+            </div>
+          </div>
+          <div id="step-3" class="step" role="tab" tabindex="0" aria-controls="panel-3" aria-selected="false" data-step="3">
+            <div class="step-circle">3</div>
+            <div>
+              <div class="step-title">Manager Agreement</div>
+              <div class="step-sub">Approve & assign approvers</div>
+            </div>
+          </div>
+          <div id="step-4" class="step" role="tab" tabindex="0" aria-controls="panel-4" aria-selected="false" data-step="4">
+            <div class="step-circle">4</div>
+            <div>
+              <div class="step-title">Owner & Verifier Actions</div>
+              <div class="step-sub">Complete, evidence, verify</div>
+            </div>
+          </div>
+          <div id="step-5" class="step" role="tab" tabindex="0" aria-controls="panel-5" aria-selected="false" data-step="5">
+            <div class="step-circle">5</div>
+            <div>
+              <div class="step-title">Complete Audit</div>
+              <div class="step-sub">Finalize the process</div>
+            </div>
+          </div>
+        </nav>
+      </aside>
 
-        <div class="flex flex-col md:flex-row gap-8">
-            <aside class="w-full md:w-1/3 lg:w-1/4">
-                <nav id="stepper" class="space-y-1">
-                    <div id="step-1" class="step border-l-4 border-slate-200 p-4 hover:bg-white flex items-center space-x-4">
-                        <div class="step-circle flex-shrink-0 bg-slate-200 text-slate-600 w-8 h-8 rounded-full flex items-center justify-center font-bold">1</div>
-                        <div><h3 class="step-title font-semibold">Create Audit & Finding</h3><p class="text-sm text-slate-500">Start the process</p></div>
-                    </div>
-                    <div id="step-2" class="step border-l-4 border-slate-200 p-4 hover:bg-white flex items-center space-x-4">
-                        <div class="step-circle flex-shrink-0 bg-slate-200 text-slate-600 w-8 h-8 rounded-full flex items-center justify-center font-bold">2</div>
-                        <div><h3 class="step-title font-semibold">Create Action</h3><p class="text-sm text-slate-500">Address a finding</p></div>
-                    </div>
-                    <div id="step-3" class="step border-l-4 border-slate-200 p-4 hover:bg-white flex items-center space-x-4">
-                        <div class="step-circle flex-shrink-0 bg-slate-200 text-slate-600 w-8 h-8 rounded-full flex items-center justify-center font-bold">3</div>
-                        <div><h3 class="step-title font-semibold">Manager Agreement</h3><p class="text-sm text-slate-500">Approve the action</p></div>
-                    </div>
-                    <div id="step-4" class="step border-l-4 border-slate-200 p-4 hover:bg-white flex items-center space-x-4">
-                        <div class="step-circle flex-shrink-0 bg-slate-200 text-slate-600 w-8 h-8 rounded-full flex items-center justify-center font-bold">4</div>
-                        <div><h3 class="step-title font-semibold">Owner & Verifier Actions</h3><p class="text-sm text-slate-500">Complete the work</p></div>
-                    </div>
-                    <div id="step-5" class="step border-l-4 border-slate-200 p-4 hover:bg-white flex items-center space-x-4">
-                        <div class="step-circle flex-shrink-0 bg-slate-200 text-slate-600 w-8 h-8 rounded-full flex items-center justify-center font-bold">5</div>
-                        <div><h3 class="step-title font-semibold">Complete Audit</h3><p class="text-sm text-slate-500">Finalize the process</p></div>
-                    </div>
-                </nav>
-            </aside>
+      <!-- Content Panel -->
+      <main id="content-panel" role="tabpanel" aria-live="polite" aria-labelledby="step-1">
+        <!-- Content injected via JS -->
+      </main>
+    </section>
+  </div>
 
-            <main id="content-panel" class="w-full md:w-2/3 lg:w-3/4 bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-            </main>
-        </div>
-    </div>
-
-    <script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const stepsData = {
-            '1': {
-                title: 'Section 1: Managing Audits & Findings',
-                htmlContent: `
-                    <h4 class="font-semibold text-lg mb-3 text-slate-800">Create a New Audit</h4>
-                    <p class="mb-4">Begin by navigating to the <strong>Audits</strong> tab and clicking the <strong>+ New Audit</strong> button. Fill in all the required details like Title, Reference, and Dates, then click <strong>Save</strong>.</p>
-                    <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Create%20New%20Audit.png?csf=1&web=1&e=g41yNh" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Create New Audit"" alt="New Audit Screen" class="content-image mb-6 w-full h-auto object-contain max-h-96">
-                    <h4 class="font-semibold text-lg mb-3 text-slate-800">Add a Finding to an Audit</h4>
-                    <p class="mb-4">After saving, click the <strong>Edit</strong> button on your new audit. From the audit detail screen, click <strong>Add Finding</strong> in the header to open the finding form. Document the details and save.</p>
-                    <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Add%20Finding%20Edit%20button.png?csf=1&web=1&e=uAooNW" alt="Add Finding Button" class="content-image w-full h-auto object-contain max-h-96">`
-            },
-            '2': {
-                title: 'Section 2: The Action Lifecycle',
-                htmlContent: `
-                    <h4 class="font-semibold text-lg mb-3 text-slate-800">Create an Action for a Finding</h4>
-                    <p class="mb-4">Go to the <strong>Findings</strong> tab and click the <strong>pencil icon (✏️)</strong> on the finding you want to address. This will open the finding details, where you can add a new action.</p>
-                     <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Create%20an%20action%20for%20a%20finding.png?csf=1&web=1&e=bEy9gG" alt="Findings List" class="content-image mb-6 w-full h-auto object-contain max-h-96">
-                    <p class="mb-4">Complete the action form with a clear title, target date, and any notes. Click <strong>Save Action</strong>. The new action will now be visible in the <strong>Actions</strong> tab.</p>
-                    <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Save%20action.png?csf=1&web=1&e=77wWUY" alt="New Action Form" class="content-image w-full h-auto object-contain max-h-96">`
-            },
-            '3': {
-                title: 'Section 2: The Action Lifecycle',
-                htmlContent: `
-                    <h4 class="font-semibold text-lg mb-3 text-slate-800">Manager Agreement & Assignment</h4>
-                    <p class="mb-4">Before work begins, an action must be agreed upon. Navigate to the action and click to view its details. Go to the <strong>Action Responsibility</strong> area and click <strong>+ Add Managers</strong> to assign approvers.</p>
-                    <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Responsible%20Managers.png?csf=1&web=1&e=G1bYOo" alt="Assign Responsibility Screen" class="content-image mb-6 w-full h-auto object-contain max-h-96">
-                    <p class="mb-4">After adding managers, navigate to <strong>Auction Responsibility,</strong>  click the <strong>Notify</strong> button to send them an alert. Once they have met and verbally agreed, update the action's approval status to <strong>Agreed</strong> and record who signed off and the date.</p>
-                    <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Manager%20Agreement.png?csf=1&web=1&e=tbzh1x" alt="Manager Agreement Section" class="content-image w-full h-auto object-contain max-h-96">
-                    <p class="mb-4">Once they have met and verbally agreed, update the action's approval status to <strong>Agreed</strong> and record who signed off and the date.</p>
-                    <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Manager%20Agreement1.png?csf=1&web=1&e=rDKQhI" alt="Manager Agreement Section" class="content-image w-full h-auto object-contain max-h-96">`
-            },
-            '4': {
-                title: 'Section 2: The Action Lifecycle',
-                htmlContent: `
-                    <h4 class="font-semibold text-lg mb-3 text-slate-800">Owner Actions & Verification</h4>
-                    <p class="mb-4">Once agreed between Managers, assign the task. In the Action, click on the <strong>Assign Responsibility</strong> and, click <strong>+ Add Owner</strong> and select the person responsible. After that head over to the Action Responsibility and notify the owner/owners to begin work.</p>
-                    <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Add%20Owner.png?csf=1&web=1&e=MJdbn5" alt="Assign Owner" class="content-image mb-6 w-full h-auto object-contain max-h-96">
-                    <p class="mb-4">The owner completes the task, uploads evidence (throught the "Upload Evidence" button on the action), and marks the action status as <strong>Completed</strong>. Finally, you must assign a verifier by clicking <strong>+ Add Verifier</strong>. The verifier reviews the evidence and, views all evidences and mark them verified. When satisfied with all of the evidences for an action, the verifier then marks the action as <strong>Verified</strong>.</p>`
-            },
-            '5': {
-                title: 'Section 3: Completing the Audit',
-                htmlContent: `
-                    <h4 class="font-semibold text-lg mb-3 text-slate-800">Completing the Audit</h4>
-                    <p class="mb-4">An audit can only be closed once all its associated actions have been successfully verified. First, ensure all actions for the audit are marked as 'Verified'.</p>
-                    <p class="mb-4">Return to the main <strong>Audits</strong> tab. Find the audit card and click the <strong>Mark Completed</strong> button to formally close the audit.</p>
-                    <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Mark%20Audit%20Complete.png?csf=1&web=1&e=hEOxlr" alt="Mark Audit Completed" class="content-image mb-6 w-full h-auto object-contain max-h-96">
-                    <p class="mt-6 font-semibold text-xl text-center text-teal-600">Congratulations, the audit process is complete!</p>`
-            }
-        };
-
-        const stepper = document.getElementById('stepper');
-        const contentPanel = document.getElementById('content-panel');
-        const steps = stepper.querySelectorAll('.step');
-
-        function renderContent(stepId) {
-            const data = stepsData[stepId];
-            if (!data) return;
-
-            contentPanel.innerHTML = `
-                <h2 class="text-2xl font-bold text-slate-900 mb-2">${data.title}</h2>
-                <div class="prose max-w-none prose-slate mt-4">${data.htmlContent}</div>
-            `;
-
-            steps.forEach(s => s.classList.remove('active'));
-            document.getElementById(`step-${stepId}`).classList.add('active');
+      const stepsData = {
+        '1': {
+          title: 'Section 1: Create Audit & Finding',
+          htmlContent: `
+            <span class="chip">Audits</span>
+            <h4>Create a New Audit</h4>
+            <p>Navigate to the <strong>Audits</strong> tab and select <strong>+ New Audit</strong>. Complete key details (Title, Reference, Dates), then select <strong>Save</strong>.</p>
+            <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Create%20New%20Audit.png?csf=1&web=1&e=g41yNh" alt="New Audit Screen" class="content-image" />
+            <h4>Add a Finding to an Audit</h4>
+            <p>Open your newly created audit and select <strong>Edit</strong>. From the audit details, choose <strong>Add Finding</strong> to open the finding form, document the details, then save.</p>
+            <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Add%20Finding%20Edit%20button.png?csf=1&web=1&e=uAooNW" alt="Add Finding Button" class="content-image" />
+          `
+        },
+        '2': {
+          title: 'Section 2: Create Action',
+          htmlContent: `
+            <span class="chip">Findings → Actions</span>
+            <h4>Create an Action for a Finding</h4>
+            <p>In the <strong>Findings</strong> tab, select the <strong>✏️ pencil</strong> on the finding to open details, then add a new action.</p>
+            <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Create%20an%20action%20for%20a%20finding.png?csf=1&web=1&e=bEy9gG" alt="Findings List" class="content-image" />
+            <p>Give the action a clear title, set a target date, and add notes. Choose <strong>Save Action</strong>. It will now appear in the <strong>Actions</strong> tab.</p>
+            <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Save%20action.png?csf=1&web=1&e=77wWUY" alt="New Action Form" class="content-image" />
+          `
+        },
+        '3': {
+          title: 'Section 3: Manager Agreement',
+          htmlContent: `
+            <span class="chip">Actions → Approvals</span>
+            <h4>Manager Agreement & Assignment</h4>
+            <p>Open the action, go to <strong>Action Responsibility</strong>, then select <strong>+ Add Managers</strong> to assign approvers.</p>
+            <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Responsible%20Managers.png?csf=1&web=1&e=G1bYOo" alt="Assign Responsibility Screen" class="content-image" />
+            <p>After adding managers, go to <strong>Action Responsibility</strong> and select <strong>Notify</strong> to alert them. When agreed, update approval to <strong>Agreed</strong>, recording who signed off and the date.</p>
+            <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Manager%20Agreement.png?csf=1&web=1&e=tbzh1x" alt="Manager Agreement Section" class="content-image" />
+            <p>Confirm the agreement by updating the status and capturing sign‑off details.</p>
+            <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Manager%20Agreement1.png?csf=1&web=1&e=rDKQhI" alt="Manager Agreement Section 2" class="content-image" />
+          `
+        },
+        '4': {
+          title: 'Section 4: Owner & Verifier Actions',
+          htmlContent: `
+            <span class="chip">Execution & Evidence</span>
+            <h4>Owner Actions & Verification</h4>
+            <p>Once managers have agreed, assign the task owner. In the action, open <strong>Assign Responsibility</strong>, select <strong>+ Add Owner</strong>, then notify via <strong>Action Responsibility</strong>.</p>
+            <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Add%20Owner.png?csf=1&web=1&e=MJdbn5" alt="Assign Owner" class="content-image" />
+            <p>The owner completes the task, uploads evidence using <strong>Upload Evidence</strong>, and marks the action as <strong>Completed</strong>. Assign a <strong>Verifier</strong>, who reviews all evidence and marks each verified. When satisfied, the verifier sets the action to <strong>Verified</strong>.</p>
+          `
+        },
+        '5': {
+          title: 'Section 5: Complete Audit',
+          htmlContent: `
+            <span class="chip">Close‑out</span>
+            <h4>Completing the Audit</h4>
+            <p>All actions linked to the audit must be <strong>Verified</strong>. Return to <strong>Audits</strong>, locate the audit card, and choose <strong>Mark Completed</strong> to close the audit.</p>
+            <img src="https://highlandcouncil1.sharepoint.com/:i:/r/sites/RAR/AuditGuideImages/Mark%20Audit%20Complete.png?csf=1&web=1&e=hEOxlr" alt="Mark Audit Completed" class="content-image" />
+            <p style="text-align:center; font-weight:800; color:#0d9488; font-size:20px; margin-top: 12px;">✅ Nice! The audit process is complete.</p>
+          `
         }
+      };
 
-        stepper.addEventListener('click', (e) => {
-            const stepElement = e.target.closest('.step');
-            if (stepElement) {
-                const stepId = stepElement.id.split('-')[1];
-                renderContent(stepId);
-            }
-        });
+      const stepper = document.getElementById('stepper');
+      const contentPanel = document.getElementById('content-panel');
+      const progress = document.getElementById('progress');
+      const steps = Array.from(stepper.querySelectorAll('.step'));
+      const totalSteps = steps.length;
+      let current = 1;
 
-        renderContent('1');
+      function setProgress(step) {
+        const pct = Math.max(0, Math.min(100, (step - 1) / (totalSteps - 1) * 100));
+        progress.style.width = pct + '%';
+      }
+
+      function updateStepperActive(stepId) {
+        steps.forEach(s => s.classList.toggle('active', Number(s.dataset.step) === Number(stepId)));
+        steps.forEach(s => s.setAttribute('aria-selected', String(Number(s.dataset.step) === Number(stepId))));
+      }
+
+      function renderContent(stepId) {
+        const data = stepsData[String(stepId)];
+        if (!data) return;
+
+        // set ARIA bindings
+        contentPanel.setAttribute('aria-labelledby', 'step-' + stepId);
+        contentPanel.id = 'panel-' + stepId;
+
+        // build content with a small transition
+        const wrapper = document.createElement('div');
+        wrapper.className = 'fade-enter';
+        wrapper.innerHTML = `
+          <div class="content-header">
+            <h2 class="content-title">${data.title}</h2>
+            <div class="chip">Step ${stepId} of ${totalSteps}</div>
+          </div>
+          <div class="content-body">${data.htmlContent}</div>
+          <div class="controls">
+            <button class="btn secondary" id="prevBtn" ${stepId == 1 ? 'disabled' : ''} aria-label="Previous step">◀ Previous</button>
+            <button class="btn" id="nextBtn" ${stepId == totalSteps ? 'disabled' : ''} aria-label="Next step">Next ▶</button>
+          </div>
+        `;
+
+        contentPanel.innerHTML = '';
+        contentPanel.appendChild(wrapper);
+        requestAnimationFrame(() => { wrapper.classList.add('fade-enter-active'); });
+
+        // controls
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        prevBtn && prevBtn.addEventListener('click', () => goTo(stepId - 1));
+        nextBtn && nextBtn.addEventListener('click', () => goTo(stepId + 1));
+
+        updateStepperActive(stepId);
+        setProgress(stepId);
+        current = Number(stepId);
+      }
+
+      function goTo(stepId) {
+        const id = Math.max(1, Math.min(totalSteps, Number(stepId)));
+        renderContent(id);
+        const active = document.querySelector(`#step-${id}`);
+        active && active.focus();
+      }
+
+      // Sidebar click + keyboard support
+      stepper.addEventListener('click', (e) => {
+        const item = e.target.closest('.step');
+        if (!item) return;
+        goTo(item.dataset.step);
+      });
+
+      stepper.addEventListener('keydown', (e) => {
+        const item = e.target.closest('.step');
+        if (!item) return;
+        const step = Number(item.dataset.step);
+        if (e.key === 'ArrowDown') { e.preventDefault(); goTo(step + 1); }
+        if (e.key === 'ArrowUp')   { e.preventDefault(); goTo(step - 1); }
+        if (/^[1-5]$/.test(e.key)) { e.preventDefault(); goTo(Number(e.key)); }
+      });
+
+      // Global shortcuts: Alt+N / Alt+P
+      document.addEventListener('keydown', (e) => {
+        if (e.altKey && (e.key.toLowerCase() === 'n')) { goTo(current + 1); }
+        if (e.altKey && (e.key.toLowerCase() === 'p')) { goTo(current - 1); }
+      });
+
+      // initial render
+      renderContent(1);
+      document.getElementById('step-1').classList.add('active');
     });
-    </script>
+  </script>
 </body>
 </html>
